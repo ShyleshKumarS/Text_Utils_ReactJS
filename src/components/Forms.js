@@ -4,7 +4,8 @@ import React,{useState} from 'react' //{} hook
 export default function Forms(props) {
 
   const handlerChange=(event)=>{
-    setText(event.target.value);
+    setText(event.target.value);  
+    updateCount(event.target.value);
   }
 
   const handleUpper=()=>{
@@ -59,6 +60,16 @@ export default function Forms(props) {
     let namex=name.replace(/ [ ]/g,"");
     setText(namex);
   }
+  
+  const [count,setCount]=useState({ wordCount: 0, letterCount: 0 });
+  const updateCount = (txt) => {
+    
+    const words = txt.split(/\s+/).filter(Boolean);
+    const wordCount = words.length;
+    const letterCount = txt.replace(/\s+/g, '').length;
+
+    setCount({ wordCount, letterCount });
+  }
 
   const [txt,setText]=useState("")//State defining
   return (
@@ -80,7 +91,8 @@ export default function Forms(props) {
 
     <div className="container">
       <h3>Text Summary</h3>
-      <p>{txt.length} of Character and {txt.length===0 ? 0:txt.split(' ').length} of Words.</p>
+      
+      <p>{count.letterCount} of Character and {count.wordCount} of Words.</p>
     </div>
     </>
   )
