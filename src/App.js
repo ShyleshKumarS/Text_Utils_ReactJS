@@ -34,12 +34,11 @@ function App() {
     <>
     
       <Navbar title="Welcome" about="Aboutus" modes={mode} toogleMode={toogleMode} />
-      
       <section style={{backgroundColor:mode==='dark'? '#363d43':'white',color:mode==='dark'? 'white':'black'}}>
       <Alert alert={alert}/>
       <br/>
         <div className="container">
-          <Forms text="Enter the text to analyze" mode={mode} setAlert={setAlert}/>
+          <Forms text="Enter the text to analyze" mode={mode} showAlert={showAlert}/>
         </div>
         <div className="container">
           <About/>

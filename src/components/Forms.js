@@ -1,7 +1,6 @@
 import React,{useState} from 'react' //{} hook
 
 
-
 export default function Forms(props) {
 
   const handlerChange=(event)=>{
@@ -50,9 +49,9 @@ export default function Forms(props) {
   }
 
   const handleCopy=() => {
-    props.showAlert("Copied to clipboard!","success");
     let name=document.getElementById("myText").value;
     navigator.clipboard.writeText(name);
+    props.showAlert("Copied to clipboard!","success");
   }
 
   const handleSpaces=()=>{
